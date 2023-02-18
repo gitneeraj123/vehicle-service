@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static '/static/1.jpg' %}"/> -->
+    <title>login page</title>
+   <style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('1.jpg');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+    }
+    .container{
+        background: transparent;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px;
+        width: 400px;
+        border: 2px solid white;
+    }
+    .header{
+        padding: 30px 0 10px 0;
+    }
+    .header h2{
+        margin: 0;
+        text-transform: uppercase;
+        align-items: center;
+        display: flex;
+        color: white;
+        justify-content: center;
+    }
+    .header p{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: white;
+    }
+    .form{
+        padding: 20px 40px;
+        margin-top: -45px;
+        color: white;
+    }
+    .form-control{
+        padding: 2px;
+        margin: 10px;
+        position: relative;
+    }
+    .form-control input{
+        display: block;
+        width: 100%;
+        padding: 5px ;
+        font-size: 14px;
+        margin-top: 10px;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid white;
+        color: white;
+    }
+    .form button{
+        background-color: bisque;
+        width: 93%;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        align-items: center;
+        margin-left: 14px;
+        transition: .5s;
+    }
+    .form button a{
+        text-decoration: none;
+        color: black;
+    }
+    .form button:hover{
+        background-color: rgb(46, 42, 42);
+        color: white;
+    }
+    .form button a:hover{
+        color: rgb(255, 255, 255);
+    }
+    i{
+        cursor: pointer;
+    }
+    #hide1{
+        display: none;
+    }
+    div form a{color: blanchedalmond;}
+    
+   </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>car service</h2>
+            <p>Sign Up</p>
+        </div>
+        <form action="" class="form" id="form">
+            <!-- {% csrf_token %} -->
+           
+            <div class="form-control">
+                <label>Name :</label>
+                <input type="text" name="name" id="nm" placeholder="Name" ><span id="nms"></span>
+               
+            </div>
+            <div class="form-control">
+                <label>Email :</label>
+                <input type="email" name="email" id="email" placeholder="Email" ><span id="ems"></span>
+               
+            </div>
+            <div class="form-control">
+                <label>Mobile No. :</label>
+                <input type="phone" name="phone" id="mb" placeholder="Mobile No." ><span id="mms"></span>
+               
+            </div>
+            <div class="form-control">
+                <label>Password :</label>
+                <input type="password" name="pass" id="pwd" placeholder="Password" ><span id="pms"></span>
+               
+            </div>
+            <div class="form-control">
+                <label>Confirm Password :</label>
+                <input type="password" name="pass" id="cpwd" placeholder="Confirm Password">
+                <span onclick="myFunction()">
+                    <i class="bi bi-eye" id="hide1"></i>
+                <i class="bi bi-eye-slash" id="hide2"></i></span>
+                <span id="cpms"></span>
+               
+            </div>
+            
+             <button onclick="return valid()"><a href="">Submit</a></button> 
+              Don't have account <a href="http://127.0.0.1:5500/project2/signup.html">Register </a>
+        </form>
+    </div>
+    <script>   
+function myFunction(){
+    var x = document.getElementById("cpwd");
+    var y = document.getElementById("hide1");
+    var z = document.getElementById("hide2");
+   
+    if(x.type === 'password'){
+      x.type = 'text';
+      y.style.display = 'block';
+      z.style.display = 'none';
+    }
+   else{
+    x.type = 'password';
+    y.style.display = 'none';
+    z.style.display = 'block';
+   }
+   }
+    </script>
+</body>
+</html>

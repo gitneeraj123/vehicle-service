@@ -1,0 +1,281 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup page</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+           background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('3.jpg');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            background-position: center;
+            background-size: cover;
+        }
+        .container{
+            background: transparent;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px;
+            width: 800px;
+            border: 2px solid white;
+        }
+        .header{
+            padding: 30px 0 10px 0;
+        }
+        .header h2{
+            margin: 0;
+            text-transform: uppercase;
+            align-items: center;
+            display: flex;
+            color: white;
+            justify-content: center;
+        }
+        .header p{
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             color: white;
+        }
+        .form{
+            padding: 20px 40px;
+            margin-top: -45px;
+            color: white;
+        }
+        .form-control{
+            padding: 2px;
+            margin: 10px;
+            position: relative;
+           display: flex;
+        }
+        .form-control label{
+            /* margin-right: 12px; */
+            width: 100px;
+        
+        }
+        .form-control input{
+            display: flex;
+            justify-content: space-between;
+            width: 40%;
+            padding: 5px ;
+            font-size: 14px;
+            /* margin-top: 10px; */
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid white;
+            color: white;
+        }
+        .form button{
+            background-color: bisque;
+            width: 93%;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            align-items: center;
+            margin-left: 14px;
+            transition: .5s;
+        }
+        .form button a{
+            text-decoration: none;
+            color: black;
+        }
+        .form button:hover{
+            background-color: rgb(46, 42, 42);
+            color: white;
+        }
+        .form button a:hover{
+            color: white;
+        }
+        i{
+            cursor: pointer;
+        }
+        #hide1{
+            display: none;
+        } 
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>car service</h2>
+            <p>Registration</p>
+        </div>
+        <form action="" class="form" id="form">
+            <!-- {% csrf_token %} -->
+            <div class="form-control">
+                <label>First_Name :</label>
+                <input type="text" name="first_name" id="nm" placeholder="Name" ><span id="nms"></span>
+            </div>
+
+            <div class="form-control">
+                <label>Last_Name :</label>
+                <input type="text" name="last_name" id="nm" placeholder="Name" ><span id="nms"></span>
+            </div>
+            
+            <div class="form-control">
+                <label>Sex :</label>
+                <input type="text" name="sex" id="nm" placeholder="Gender" ><span id="nms"></span>
+            </div>
+
+            <div class="form-control">
+                <label>Email :</label>
+                <input type="email" name="email" id="email" placeholder="Email" autocomplete="off"><span id="ems"></span>
+               
+            </div>
+            <div class="form-control">
+                <label>Licencse No. :</label>
+                <input type="text" name="lic_no" id="txt" placeholder="Licencse No." required >
+               
+            </div>
+            <div class="form-control">
+                <label>Mobile No. :</label>
+                <input type="phone" name="phone" id="mb" placeholder="Mobile No." ><span id="mms"></span>
+               
+            </div>
+            <div class="form-control">
+                <label>Enter State :</label>
+                <input type="text" name="state" id="State" placeholder="Enter State" required>
+            </div>
+            <div class="form-control">
+                <label>Enter City :</label>
+                <input type="text" name="city" id="city" placeholder="Enter City" required>
+            </div>
+            <div class="form-control">
+                <label for="">Document :</label>
+                <select name="doc" id="Document">
+                <option hidden value="">Select</option>
+                <option value="">Aadhar Card..</option>
+                <option value="">PAN Card..</option>
+                <option value="">Voter Id..</option>
+
+            </select>
+               
+            </div>
+            <div class="form-control">
+                <label>Doc File :</label>
+                <input type="file" name="doc_file" id="file" required >
+               
+            </div>
+            <div class="form-control">
+                <label>Bank Passbook :</label>
+                <input type="file" name="passbook" id="file" required >
+               
+            </div>
+            
+            
+            <div class="form-control">
+                <label>Photo :</label>
+                <input type="file" name="photo" id="file" required >
+            </div>
+            <div class="form-control">
+                <label>Password :</label>
+                <input type="password" name="password" id="pwd" placeholder="Password" ><span id="pms"></span>
+               
+            </div>
+            <!-- <div class="form-control">
+                <label>Confirm Password :</label>
+                <input type="password" name="pass" id="cpwd" placeholder="Confirm Password">
+                <span onclick="myFunction()">
+                    <i class="bi bi-eye" id="hide1"></i>
+                <i class="bi bi-eye-slash" id="hide2"></i></span>
+                <span id="cpms"></span>
+               
+            </div> -->
+            
+             <button onclick="return valid()"><a href="">Submit</a></button> 
+        </form>
+    </div>
+    <script>
+        function valid()
+{
+  var  nm = document.getElementById("nm").value
+  var  email = document.getElementById("email").value
+  var  mb = document.getElementById("mb").value
+  var  pwd = document.getElementById("pwd").value
+  var  cpwd = document.getElementById("cpwd").value
+
+
+ if(nm == ""){
+   document.getElementById("nms").innerHTML = "**Please fill"
+   document.getElementById("nms").style.color = "red"
+   return false;
+ }
+ if(nm.length <= 2){
+   document.getElementById("nms").innerHTML = "name length between 2 and 20"
+   document.getElementById("nms").style.color = "red"
+ return false;
+ }
+ if(!isNaN(nm)){
+   document.getElementById("nms").innerHTML = "* * Only Character"
+   document.getElementById("nms").style.color = "red"
+ return false;
+ }
+
+ if(email == ""){
+   document.getElementById("ems").innerHTML = "**Please fill"
+   document.getElementById("ems").style.color = "red"
+   return false;
+ }
+
+ if(email.indexOf('@')<=0 ){
+   document.getElementById("ems").innerHTML = "* * Invalid @ position"
+   document.getElementById("ems").style.color = "red"
+   return false;
+ }
+
+ if(mb == ""){
+   document.getElementById("mms").innerHTML = "**Please fill"
+   document.getElementById("mms").style.color = "red"
+   return false;
+ }
+
+   if(isNaN(mb)){
+       document.getElementById("mms").innerHTML = "Please enter only digit"
+       document.getElementById("mms").style.color = "red"
+       return false;
+   }
+  
+   if(mb.length!=10){
+       document.getElementById("mms").innerHTML = "Please enter 10 digit M0bile No."
+       document.getElementById("mms").style.color = "red"
+       return false;
+   }
+
+ if(pwd == ""){
+   document.getElementById("pms").innerHTML = "**Please fill"
+   document.getElementById("pms").style.color = "red"
+   return false;
+ }
+ if(pwd.length <= 5){
+   document.getElementById("pms").innerHTML = "Password length between 5 and 20"
+   document.getElementById("pms").style.color = "red"
+ return false;
+ }
+ 
+ 
+ 
+ if(cpwd == ""){
+   document.getElementById("cpms").innerHTML = "**Please fill"
+   document.getElementById("cpms").style.color = "red"
+   return false;
+ }
+ if(cpwd.length <= 2){
+   document.getElementById("cpms").innerHTML = "name length between 2 and 20"
+   document.getElementById("cpms").style.color = "red"
+ return false;
+ }
+ if(pwd != cpwd){
+   document.getElementById("cpms").innerHTML = "Password are not match"
+   document.getElementById("cpms").style.color = "red"
+     return false;
+ }
+
+}
+    </script>
+</body>
+</html>
